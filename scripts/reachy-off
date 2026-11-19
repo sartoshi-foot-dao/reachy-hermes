@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if pgrep -u "$USER" -f "$HOME/.cache/reachy_mini_py/bin/reachy-mini-daemon" >/dev/null; then
+  reachy-hermes-demo --command sleep || true
+fi
+
+reachy-mini-stop
+

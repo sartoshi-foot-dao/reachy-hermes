@@ -1,0 +1,77 @@
+version: "3"
+
+tasks:
+  on:
+    desc: Start the Reachy Mini daemon with media and wake the robot.
+    cmds:
+      - reachy-on
+
+  off:
+    desc: Put Reachy to sleep, then stop the daemon.
+    cmds:
+      - reachy-off
+
+  start:
+    desc: Start the Reachy Mini daemon with media.
+    cmds:
+      - reachy-mini-start
+
+  start:no-media:
+    desc: Start the daemon without camera/audio media.
+    aliases:
+      - no-media
+    cmds:
+      - reachy-mini-start --no-media
+
+  stop:
+    desc: Stop the Reachy Mini daemon.
+    cmds:
+      - reachy-mini-stop
+
+  stop:force:
+    desc: Force-stop a stuck Reachy Mini daemon.
+    cmds:
+      - reachy-mini-stop --force
+
+  wake:
+    desc: Wake Reachy without restarting the daemon.
+    cmds:
+      - reachy-hermes-demo --command wake
+
+  sleep:
+    desc: Put Reachy in sleep pose without stopping the daemon.
+    cmds:
+      - reachy-hermes-demo --command sleep
+
+  status:
+    desc: Print daemon, motor, media, and control-loop status.
+    cmds:
+      - reachy-hermes-demo --command status
+
+  smoke:
+    desc: Run the Reachy Mini smoke test.
+    cmds:
+      - reachy-mini-smoke
+
+  smoke:camera:
+    desc: Run the Reachy Mini smoke test including camera capture.
+    cmds:
+      - reachy-mini-smoke --camera
+
+  action-space:
+    desc: Inspect actions, gestures, dances, and emotions without moving the robot.
+    aliases:
+      - actions
+    cmds:
+      - reachy-hermes-action-space
+
+  demo:
+    desc: Start the typed Hermes tool-loop demo.
+    cmds:
+      - reachy-hermes-demo
+
+  voice:
+    desc: Start realtime voice mode.
+    cmds:
+      - reachy-hermes-voice
+

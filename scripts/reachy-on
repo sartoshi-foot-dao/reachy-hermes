@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+reachy-mini-start
+reachy-hermes-demo --command wake
+reachy-hermes-demo --command status
+

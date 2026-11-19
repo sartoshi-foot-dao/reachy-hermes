@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PYTHONPATH="${ROOT}${PYTHONPATH:+:$PYTHONPATH}"
+if [[ -f "$HOME/.config/reachy-hermes-demo/openai.env" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "$HOME/.config/reachy-hermes-demo/openai.env"
+  set +a
+fi
+exec "${REACHY_PYTHON:-python3}" -m reachy_hermes_demo.realtime_voice "$@"
